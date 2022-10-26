@@ -3,7 +3,7 @@ module.exports = {
   server: {
     baseDir: "httpdocs",
   },
-  startPath: "/public/test.html",
+  startPath: "/public/vol1.html",
   proxy: false,
   port: 3000,
   xip: false,

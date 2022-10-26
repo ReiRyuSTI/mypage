@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwindで遊んでみた Vol.1</title>
+    <link rel="icon" href="icon/vol1icon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="w-screen h-screen my-20">
+    <main class="flex flex-col justify-start md:justify-center items-center gap-5 p-2 m-auto w-full max-w-3xl h-full">
+        <div class="flex flex-row justify-around items-center w-full h-20 font-lobster text-2xl">
+            <div class="-rotate-12 hover:cursor-pointer" onclick="onClickBlog()">
+                BLOG
+            </div>
+            <div class="-translate-y-6 hover:cursor-pointer" onclick="onClickCompany()">
+                COMPANY
+            </div>
+            <div class="rotate-12 hover:cursor-pointer" onclick="onClickPhoto()">
+                PHOTO
+            </div>
+        </div>
+        <img src="images/icon.png" class="w-32 h-32 object-contain" alt="">
+        <div class="mx-2 p-2 shadow-md font-kosugi">
+            <div class="border-b-2 border-gray-500 w-full text-2xl">
+                龍ちゃんです( *´艸｀)
+            </div>
+            <div class="text-md">
+                どもども！訪れていただいてありがとうございます。
+                今回は、朝の一時間企画で、Tailwindコーディングを行った結果を公開しています。
+                実際のコーディング時間は30分程度ですね。デザインを決めるよりも、何のサイトを作ろうか悩んでいたら時間がたってしまいました。
+                こちらのページは、<a href="https://tech-lab-engineer.sios.jp/archives/log/20221026_ryu/"
+                    class="font-bold border-b-2 border-red-300 text-red-600">Tailwindで遊んでみた
+                    vol.1</a>に伴って作成しました。
+                もしよろしかったら、そちらのページものぞいてみてね。何なら、BlOG・COMPANY・PHOTOそれぞれを押していただいたら、飛びますよ"(-""-)"
+                シリーズにしたい気持ちを抱えて、朝のコーディングを終了しますね。ではまた！
+            </div>
+        </div>
+        <div class="p-5">
+            <img src="images/title.png"
+                class="w-full h-full object-contain border-2 border-black rounded-md hover:cursor-pointer"
+                onclick="onClickBlogPage()" alt="">
+        </div>
+
+    </main>
+</body>
+<script>
+    const onClickBlog = () => {
+        window.open("https://tech-lab-engineer.sios.jp/archives/log/")
+    }
+    const onClickCompany = () => {
+        window.open("https://www.sios.com/ja/")
+    }
+    const onClickPhoto = () => {
+        window.open("https://www.reina-ryu-f.xyz/photoAlb/#/all")
+    }
+    const onClickBlogPage = () => {
+        window.location.href = "https://tech-lab-engineer.sios.jp/archives/log/20221026_ryu/"
+    }
+</script>
+
+</html>
