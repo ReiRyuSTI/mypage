@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>test</title>
+</head>
+
+<body class="bg-gray-400/40 h-screen w-screen">
+    <div class="flex flex-col items-center justify-center m-auto w-full max-w-xl h-full">
+        <div class="inline-block w-full text-center text-3xl">
+            Tailwind 楽しいよ( *´艸｀)
+        </div>
+        <div class="inline-block w-full  text-center text-xl text-gray-500">
+            これからTailwindをいっぱい書いていきましょう♪
+        </div>
+        <div class="inline-flex items-center justify-center my-10 rounded-md border-2 border-blue-400 bg-blue-300/80 w-36 h-12 font-bold text-white hover:cursor-pointer"
+            onclick="onClickButton()">
+            公式サイトへ→
+        </div>
+    </div>
+</body>
+<script>
+    const onClickButton = () => {
+        window.open("https://tailwindcss.com/")
+    }
+</script>
+
+</html>

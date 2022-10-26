@@ -1,0 +1,14 @@
+{
+  "name": "initializetailwind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.2.0"
+  },
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/style.css -o ./public/style.css",
+    "watch": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch",
+    "browser": "browser-sync start --server --config=bs-config.js"
+  }
+}
