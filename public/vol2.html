@@ -11,7 +11,7 @@
 
   <body class="relative font-dela">
     <header
-      class="z-40 fixed top-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-between px-2 rounded-lg border-8 border-black bg-white h-40 w-full max-w-7xl"
+      class="z-40 fixed top-0 md:top-2 left-1/2 -translate-x-1/2 flex flex-row items-center justify-between px-2 rounded-lg border-8 border-black bg-white h-40 w-full max-w-7xl"
     >
       <div class="text-4xl">
         Tailwindで<br class="md:hidden" />遊んでみた Vol.2
@@ -46,8 +46,9 @@
       >
         <img src="images/hamburger.svg" class="h-8 w-8" alt="" />
       </div>
+
       <div
-        class="z-30 fixed top-0 flex flex-col items-center justify-around w-screen h-screen rounded-lg border-8 border-black pt-44 bg-white transition-transform -translate-y-full"
+        class="z-30 fixed bottom-0 flex flex-col items-center justify-around w-screen h-full rounded-lg border-8 border-black pt-44 bg-white transition-transform -translate-y-full"
         id="submenu"
       >
         <ul class="flex flex-col justify-around items-center h-full">
@@ -73,7 +74,7 @@
       </div>
     </sub>
 
-    <main class="flex flex-col gap-y-20 py-52 mx-4 md:m-auto max-w-7xl">
+    <main class="flex flex-col gap-y-20 pt-52 pb-32 mx-4 md:m-auto max-w-7xl">
       <section class="flex flex-col gap-y-10 w-full">
         <h1
           class="flex flex-row items-end border-b-4 border-black w-full max-w-md text-2xl"
@@ -92,8 +93,27 @@
               alt=""
             />
           </div>
-          <div class="inline-block h-2/3 w-full md:h-auto md:w-1/2">
-            <p>どうもこんにちは</p>
+          <div
+            class="flex flex-col justify-center p-4 h-2/3 w-full md:h-auto md:w-1/2"
+          >
+            <p>
+              どうもこんにちは!龍ちゃんです。今回は、前回の記事からの続きになっています。今回は、前回のノリでの作成と異なり、Figmaを使用してちゃんとデザインカンプを作成して作っています。
+              今回の記事は<a
+                href=""
+                class="border-b-2 border-red-400 text-red-500"
+              >
+                こちらから。
+              </a>
+              今回の
+              <a href="" class="border-b-2 border-red-400 text-red-500">
+                Figma
+              </a>
+              も置いておきますね。こちらのテーマはゲームっぽさを意識してデザインしてみました。掲載内容は、僕が訪れた飲食店ですね。ではでは、いいTailwindLifeを！！
+              <br class="hidden md:inline" />
+            </p>
+            <p class="hidden md:inline text-2xl">
+              というかこのフォント見にくいな！！！
+            </p>
           </div>
         </div>
       </section>
@@ -109,67 +129,87 @@
           <div
             class="flex flex-col md:flex-row w-full max-w-xl h-96 rounded-3xl shadow-xl overflow-hidden"
           >
-            <div class="block w-full h-1/2 md:w-1/2 md:h-auto">
+            <div class="block w-full h-1/3 md:w-1/2 md:h-auto">
               <img
                 src="images/vol2img1.jpg"
                 class="w-full h-full object-cover"
                 alt=""
               />
             </div>
-            <div class="flex flex-col h-1/2 md:w-1/2 md:h-auto p-4">
+            <div class="flex flex-col h-2/3 md:w-1/2 md:h-auto p-4">
               <h2 class="border-b-2 border-black text-xl">浅草ホッピー通り</h2>
-              <p></p>
+              <p>
+                皆さんホッピー通りに行ったことはありますか？浅草という情緒あふれる街で、飲む酒はたまらなくおいしいですよね。これはお酒がおいしいのか雰囲気がそうさせるのかわかりませんが、とにかくおいしいのです。
+              </p>
+              <p>
+                興味がある人は、是非お昼から街に繰り出してみてはどうでしょうか？お昼からかぁ～と思ったあなた。大丈夫、あなたは正常です
+              </p>
             </div>
           </div>
           <div
             class="flex flex-col md:flex-row w-full max-w-xl h-96 rounded-3xl shadow-xl overflow-hidden"
           >
-            <div class="block w-full h-1/2 md:w-1/2 md:h-auto">
+            <div class="block w-full h-1/3 md:w-1/2 md:h-auto">
               <img
                 src="images/vol2img2.jpg"
                 class="w-full h-full object-cover"
                 alt=""
               />
             </div>
-            <div class="flex flex-col h-1/2 md:w-1/2 md:h-auto p-4">
+            <div class="flex flex-col h-2/3 md:w-1/2 md:h-auto p-4">
               <h2 class="border-b-2 border-black text-xl">
                 海鮮と蛇口で楽しむ
               </h2>
-              <p></p>
+              <p>
+                小学生の時、学校の水道がきれいだった方は蛇口から水分補給をしませんでしたか？小学生の時は、あの蛇口がお茶に変わればいいのにな～と思っていました。
+              </p>
+              <p>
+                大人になって、その夢をグレードアップしてかなえることができる大人のお店がここに！お酒が飲める友人とぜひ！！痛風注意報です
+              </p>
             </div>
           </div>
           <div
             class="flex flex-col md:flex-row w-full max-w-xl h-96 rounded-3xl shadow-xl overflow-hidden"
           >
-            <div class="block w-full h-1/2 md:w-1/2 md:h-auto">
+            <div class="block w-full h-1/3 md:w-1/2 md:h-auto">
               <img
                 src="images/vol2img3.jpg"
                 class="w-full h-full object-cover"
                 alt=""
               />
             </div>
-            <div class="flex flex-col h-1/2 md:w-1/2 md:h-auto p-4">
+            <div class="flex flex-col h-2/3 md:w-1/2 md:h-auto p-4">
               <h2 class="border-b-2 border-black text-xl">
                 パンパンのお通しから揚げ
               </h2>
-              <p></p>
+              <p>
+                お通しで、自分の手と同じぐらいのサイズが出てきたことがありますか？お通しでから揚げを食べる余裕があるときにしか顔を出せませんが、ここはハイボールが安く。バカのようなサイズ感で出すことができるのが魅力の一つですね。
+              </p>
+              <p>
+                ロシアンたこ焼きもありますが、やる際は店員を巻き込みましょう...
+              </p>
             </div>
           </div>
           <div
             class="flex flex-col md:flex-row w-full max-w-xl h-96 rounded-3xl shadow-xl overflow-hidden"
           >
-            <div class="block w-full h-1/2 md:w-1/2 md:h-auto">
+            <div class="block w-full h-1/3 md:w-1/2 md:h-auto">
               <img
                 src="images/vol2img4.jpg"
                 class="w-full h-full object-cover"
                 alt=""
               />
             </div>
-            <div class="flex flex-col h-1/2 md:w-1/2 md:h-auto p-4">
+            <div class="flex flex-col h-2/3 md:w-1/2 md:h-auto p-4">
               <h2 class="border-b-2 border-black text-xl">
                 暗い店内と創作料理で乾杯
               </h2>
-              <p></p>
+              <p>
+                暗い店内とカウンターに漂う大人な雰囲気で乾杯はどうでしょうか。初めて行った際に、一回も来たことないですが、こんな料理できますかと無茶ぶりに答えていただけたので絶対にいいお店ですね。
+              </p>
+              <p>
+                店員さんがハーフの方で、めちゃめちゃイケメンだったのを覚えています。イケメン見るとついつい飲みすぎちゃいますね..
+              </p>
             </div>
           </div>
         </div>
@@ -225,25 +265,25 @@
           <ul class="flex flex-col gap-y-3 mt-3 w-full h-auto">
             <li
               class="flex flex-row gap-x-2 items-center vol2-item-li"
-              onClick="onClickButton('')"
+              onClick="onClickButton('https://rtrp.jp/articles/38846/')"
             >
               浅草ホッピー通り
             </li>
             <li
               class="flex flex-row gap-x-2 items-center vol2-item-li"
-              onClick="onClickButton('')"
+              onClick="onClickButton('https://tabelog.com/tokyo/A1305/A130503/13229195/')"
             >
               海鮮と蛇口で楽しむ
             </li>
             <li
               class="flex flex-row gap-x-2 items-center vol2-item-li"
-              onClick="onClickButton('')"
+              onClick="onClickButton('https://tabelog.com/tokyo/A1323/A132305/13242056/')"
             >
               パンパンのお通しから揚げ
             </li>
             <li
               class="flex flex-row gap-x-2 items-center vol2-item-li"
-              onClick="onClickButton('')"
+              onClick="onClickButton('https://tabelog.com/saitama/A1101/A110101/11034367/')"
             >
               暗い店内と創作料理で乾杯
             </li>
@@ -254,10 +294,10 @@
           onClick="onClickButton('')"
         >
           <div
-            class="absolute top-1/3 left-1/3 -translate-x-12 -translate-y-5 text-2xl"
+            class="absolute top-1/3 left-1/3 -translate-x-14 -translate-y-6 text-2xl"
           >
             <div class="transition-transform animate-bounce">
-              ここをクリック
+              ここをクリック!
             </div>
           </div>
           <img
