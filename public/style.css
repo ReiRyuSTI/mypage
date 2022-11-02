@@ -583,6 +583,18 @@ video {
   left: 50%;
 }
 
+.bottom-2{
+  bottom: 0.5rem;
+}
+
+.right-2{
+  right: 0.5rem;
+}
+
+.top-0{
+  top: 0px;
+}
+
 .bottom-0{
   bottom: 0px;
 }
@@ -591,24 +603,12 @@ video {
   right: 0px;
 }
 
-.top-0{
-  top: 0px;
-}
-
 .top-1\/3{
   top: 33.333333%;
 }
 
 .left-1\/3{
   left: 33.333333%;
-}
-
-.bottom-2{
-  bottom: 0.5rem;
-}
-
-.right-2{
-  right: 0.5rem;
 }
 
 .z-40{
@@ -682,32 +682,12 @@ video {
   height: 10rem;
 }
 
-.h-1{
-  height: 0.25rem;
-}
-
-.h-72{
-  height: 18rem;
-}
-
-.h-96{
-  height: 24rem;
-}
-
-.h-auto{
-  height: auto;
-}
-
-.h-16{
-  height: 4rem;
-}
-
 .h-8{
   height: 2rem;
 }
 
-.h-1\/2{
-  height: 50%;
+.h-96{
+  height: 24rem;
 }
 
 .h-1\/3{
@@ -718,8 +698,16 @@ video {
   height: 66.666667%;
 }
 
-.max-h-80{
-  max-height: 20rem;
+.h-1\/2{
+  height: 50%;
+}
+
+.h-auto{
+  height: auto;
+}
+
+.h-72{
+  height: 18rem;
 }
 
 .w-screen{
@@ -738,28 +726,12 @@ video {
   width: 5rem;
 }
 
-.w-1{
-  width: 0.25rem;
-}
-
-.w-1\/2{
-  width: 50%;
-}
-
-.w-1\/3{
-  width: 33.333333%;
+.w-8{
+  width: 2rem;
 }
 
 .w-72{
   width: 18rem;
-}
-
-.w-16{
-  width: 4rem;
-}
-
-.w-8{
-  width: 2rem;
 }
 
 .max-w-3xl{
@@ -908,6 +880,10 @@ video {
   row-gap: 2.5rem;
 }
 
+.gap-y-5{
+  row-gap: 1.25rem;
+}
+
 .gap-y-3{
   row-gap: 0.75rem;
 }
@@ -915,10 +891,6 @@ video {
 .gap-x-2{
   -moz-column-gap: 0.5rem;
        column-gap: 0.5rem;
-}
-
-.gap-y-5{
-  row-gap: 1.25rem;
 }
 
 .overflow-hidden{
@@ -979,11 +951,6 @@ video {
 .bg-white{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-gray-400{
-  --tw-bg-opacity: 1;
-  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
 }
 
 .bg-slate-300\/50{
@@ -1131,10 +1098,6 @@ video {
     margin: auto;
   }
 
-  .md\:block{
-    display: block;
-  }
-
   .md\:flex{
     display: flex;
   }
@@ -1143,12 +1106,12 @@ video {
     display: none;
   }
 
-  .md\:h-auto{
-    height: auto;
-  }
-
   .md\:h-72{
     height: 18rem;
+  }
+
+  .md\:h-auto{
+    height: auto;
   }
 
   .md\:h-96{
