@@ -10,5 +10,8 @@
     "build": "npx tailwindcss -i ./src/style.css -o ./public/style.css",
     "watch": "npx tailwindcss -i ./src/style.css -o ./public/style.css --watch",
     "browser": "browser-sync start --server --config=bs-config.js"
+  },
+  "dependencies": {
+    "prettier": "^2.7.1"
   }
 }

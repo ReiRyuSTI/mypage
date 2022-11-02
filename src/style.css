@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Kosugi&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.vol2-item-li {
+  @apply before:block before:w-6 before:h-6 before:bg-black before:rounded-full hover:cursor-pointer transition-all hover:before:bg-red-500 opacity-50 hover:opacity-100;
+}

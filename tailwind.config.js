@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         kosugi: ["Kosugi"],
         lobster: ["Lobster"],
+        dela: ["Dela Gothic One"],
       },
     },
   },
