@@ -12,3 +12,8 @@
 ## LINKS
 
 - [Tailwind で遊んでみた vol.1](https://reiryusti.github.io/mypage/public/vol1.html)
+- [Tailwind で遊んでみた vol.2](https://reiryusti.github.io/mypage/public/vol2.html)
+
+## 素材
+
+- [Tailwind で遊んでみた Vol.2 Page](https://www.figma.com/file/KnfpJxFEPF6SKlXj8ZJoNX/Blog%E7%94%A8?node-id=0%3A1)
