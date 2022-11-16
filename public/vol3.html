@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-syuku">
+    <header
+      class="z-50 fixed top-0 left-0 flex flex-row md:flex-col items-center justify-between md:justify-center bg-white/70 px-6 w-full md:w-80 h-32 md:h-full"
+    >
+      <h1 class="inline-block md:hidden text-4xl">楽に行きたい</h1>
+      <div id="menu" class="inline-block md:hidden h-16 w-16">
+        <img src="images/vol3hamburger.svg" alt="" />
+      </div>
+      <div
+        id="submenu"
+        class="fixed md:static flex flex-col justify-around items-center top-32 left-0 bg-white md:bg-transparent pb-32 w-full h-full transition-transform -translate-x-full md:translate-x-0"
+      >
+        <img
+          class="inline-block w-56 object-contain"
+          src="images/vol3logo.svg"
+          alt=""
+        />
+        <ul
+          class="inline-flex flex-col justify-around items-center md:items-start w-56 h-52 text-2xl"
+        >
+          <li
+            class="inline-block w-1/2 h-auto border-b-2 border-black text-center md:opacity-50 md:text-left md:transition-all hover:cursor-pointer hover:w-3/4 hover:opacity-100"
+            onClick="onClickButton('https://www.sios.com/ja/')"
+          >
+            会社情報
+          </li>
+          <li
+            class="inline-block w-1/2 h-auto border-b-2 border-black text-center md:opacity-50 md:text-left md:transition-all hover:cursor-pointer hover:w-3/4 hover:opacity-100"
+            onClick="onClickButton('https://tech-lab-engineer.sios.jp/archives/log/')"
+          >
+            ぶろぐ
+          </li>
+          <li
+            class="inline-block w-1/2 h-auto border-b-2 border-black text-center md:opacity-50 md:text-left md:transition-all hover:cursor-pointer hover:w-3/4 hover:opacity-100"
+            onClick="onClickButton('https://www.reina-ryu-f.xyz/photoAlb/#/all')"
+          >
+            写真集
+          </li>
+        </ul>
+        <div class="flex items-center w-56 h-16">
+          <img
+            class="inline-block w-16 h-16"
+            src="images/HumanRyuIcon.png"
+            alt=""
+          />
+          <span>created by 龍ちゃん</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex flex-col gap-y-5">
+      <section class="relative block w-full h-screen">
+        <img
+          class="hidden md:block w-full h-full object-cover"
+          src="images/vol3mainimageD.jpg"
+          alt=""
+        />
+        <img
+          class="block md:hidden w-full h-full object-cover"
+          src="images/vol3mainimageM.jpg"
+          alt=""
+        />
+        <div
+          class="absolute top-1/2 -translate-y-1/2 right-10 md:right-20 flex flex-row-reverse text-5xl md:text-8xl text-white"
+        >
+          <div class="vertical-rl">紅葉の秋</div>
+          <div class="vertical-rl pt-16 md:pt-32">食欲の秋</div>
+          <div class="vertical-rl pt-32 md:pt-64">読書の秋</div>
+        </div>
+      </section>
+      <section
+        class="relative flex flex-col items-center justify-center w-full h-auto py-5 px-7 md:pl-80"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-y-2 w-full h-auto max-w-5xl"
+        >
+          <h1
+            class="flex items-center justify-center border-b-2 border-black w-1/2 text-2xl md:text-4xl"
+          >
+            画廊
+          </h1>
+          <figure
+            class="relative md:flex h-80 md:h-auto w-full flex-nowrap md:flex-wrap overflow-hidden md:items-center md:justify-center gap-5"
+          >
+            <div
+              class="absolute md:static top-0 left-full flex flex-col items-center flex-shrink-0 bg-whi w-full md:w-[30%] h-80 transition-transform -translate-x-full md:translate-x-0"
+              id="one"
+            >
+              <img
+                class="h-72 rounded-xl w-full object-cover"
+                src="images/vol3image1.jpg"
+                alt=""
+              />
+              <h2 class="text-2xl">食欲爆発</h2>
+            </div>
+            <div
+              class="absolute md:static top-0 left-full flex flex-col items-center flex-shrink-0 bg-white w-full md:w-[30%] h-80 transition-transform"
+              id="two"
+            >
+              <img
+                class="h-72 rounded-xl w-full object-cover"
+                src="images/vol3image2.jpg"
+                alt=""
+              />
+              <h2 class="text-2xl">紅葉</h2>
+            </div>
+            <div
+              class="absolute md:static top-0 left-full flex flex-col items-center flex-shrink-0 bg-white w-full md:w-[30%] h-80 transition-transform"
+              id="three"
+            >
+              <img
+                class="h-72 rounded-xl w-full object-cover"
+                src="images/vol3image3.jpg"
+                alt=""
+              />
+              <h2 class="text-2xl">空と城</h2>
+            </div>
+            <div
+              class="absolute md:static top-0 left-full flex flex-col items-center flex-shrink-0 bg-white w-full md:w-[30%] h-80 transition-transform"
+              id="four"
+            >
+              <img
+                class="h-72 rounded-xl w-full object-cover"
+                src="images/vol3image4.jpg"
+                alt=""
+              />
+              <h2 class="text-2xl">この道はどこへ</h2>
+            </div>
+            <div
+              class="absolute md:static top-0 left-full flex flex-col items-center flex-shrink-0 bg-white w-full md:w-[30%] h-80 transition-transform"
+              id="five"
+            >
+              <img
+                class="h-72 rounded-xl w-full object-cover"
+                src="images/vol3image5.jpg"
+                alt=""
+              />
+              <h2 class="text-2xl">一日の終わり</h2>
+            </div>
+          </figure>
+        </div>
+      </section>
+      <section
+        class="relative flex flex-col items-center justify-center w-full py-5 px-7 md:pl-80"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-y-2 w-full h-full max-w-5xl"
+        >
+          <h1 class="flex items-center justify-center text-2xl md:text-4xl">
+            新しいロゴを作りました
+          </h1>
+          <img src="images/vol3logo.svg" alt="" />
+          <div class="flex flex-col gap-y-3">
+            <span class="flex items-center justify-center text-2xl md:text-4xl"
+              >フリー素材を提供してくれる方は</span
+            >
+            <span class="flex items-center justify-center text-2xl md:text-4xl"
+              >サイトの作りてから見ると</span
+            >
+            <span class="flex items-center justify-center text-2xl md:text-4xl"
+              >師匠に近いかもしれない</span
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="relative flex flex-col items-center justify-center w-full h-auto py-5 px-7 md:pl-80"
+      >
+        <div
+          class="flex flex-col items-center justify-center gap-y-4 w-full h-full max-w-5xl"
+        >
+          <h1
+            class="flex items-center justify-center border-b-2 border-black px-4 text-2xl md:text-4xl"
+          >
+            お世話になったリンク
+          </h1>
+          <div
+            class="flex flex-col md:flex-row items-center hover:cursor-pointer transition-transform hover:-translate-y-2"
+            onClick="onClickButton('https://wentz-design.com/post/figma-text-vertical-alternates/')"
+          >
+            <img
+              class="rounded-lg shadow-lg w-3/4 md:w-1/2 h-auto object-contain"
+              src="images/vol3link1.webp"
+              alt=""
+            />
+            <h2 class="w-3/4 md:w-1/2">
+              Figmaでテキストを縦書きに対応する方法<br />
+              -wentz-design.com
+            </h2>
+          </div>
+          <div
+            class="flex flex-col md:flex-row items-center hover:cursor-pointer transition-transform hover:-translate-y-2"
+            onClick="onClickButton('https://kage-design.com/2015/01/01/dragon1/')"
+          >
+            <img
+              class="rounded-lg shadow-lg w-3/4 md:w-1/2 h-auto object-contain"
+              src="images/vol3link2.png"
+              alt=""
+            />
+            <h2 class="w-3/4 md:w-1/2">
+              東洋の龍シルエット<br />
+              -SILHOUETTE DESIGN
+            </h2>
+          </div>
+          <div
+            class="flex flex-col md:flex-row items-center hover:cursor-pointer transition-transform hover:-translate-y-2"
+            onClick="onClickButton('https://github.com/tailwindlabs/tailwindcss/discussions/2494')"
+          >
+            <img
+              class="rounded-lg shadow-lg w-3/4 md:w-1/2 h-auto object-contain"
+              src="images/GitHub_Logo.png"
+              alt=""
+            />
+            <h2 class="w-3/4 md:w-1/2">
+              Add CSS writing-mode classes to Tailwind #2494
+            </h2>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    let subMenuFlag = false;
+    const MenuContainer = document.getElementById("menu");
+    const SubMenuContainer = document.getElementById("submenu");
+
+    MenuContainer.addEventListener("click", () => {
+      if (subMenuFlag) {
+        SubMenuContainer.classList.remove("translate-x-0");
+        SubMenuContainer.classList.add("-translate-x-full");
+      } else {
+        SubMenuContainer.classList.remove("-translate-x-full");
+        SubMenuContainer.classList.add("translate-x-0");
+      }
+      subMenuFlag = !subMenuFlag;
+    });
+
+    let itemCount = 0;
+    const item1 = document.getElementById("one");
+    const item2 = document.getElementById("two");
+    const item3 = document.getElementById("three");
+    const item4 = document.getElementById("four");
+    const item5 = document.getElementById("five");
+    const itemSetFunction = () => {
+      itemCount++;
+      switch (itemCount) {
+        case 1:
+          item2.classList.add("-translate-x-full");
+          break;
+        case 2:
+          item3.classList.add("-translate-x-full");
+          break;
+        case 3:
+          item4.classList.add("-translate-x-full");
+          break;
+        case 4:
+          item5.classList.add("-translate-x-full");
+          break;
+        case 5:
+          item2.classList.remove("-translate-x-full");
+          item3.classList.remove("-translate-x-full");
+          item4.classList.remove("-translate-x-full");
+          item5.classList.remove("-translate-x-full");
+          itemCount = 0;
+          break;
+      }
+    };
+    const onClickButton = (url) => {
+      window.open(url);
+    };
+    window.onload = () => {
+      if (window.screen.width >= 768) {
+        clearInterval(itemSetFunction);
+      } else {
+        setInterval(itemSetFunction, 5000);
+      }
+    };
+  </script>
+</html>
