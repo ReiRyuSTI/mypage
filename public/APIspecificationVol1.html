@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API仕様書作ってみた</title>
+    <link rel="icon" href="icon/apiIcon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="font-sawarabi text-2xl">
+    <header
+      class="flex flex-row items-center justify-center md:justify-between md:px-8 border-b-2 border-black w-full h-32"
+    >
+      <div
+        class="inline-flex items-center justify-center h-full w-full md:w-auto text-2xl font-bold"
+      >
+        API仕様書作ってみた
+      </div>
+      <ul class="hidden md:flex flex-row gap-8">
+        <li class="hover:cursor-pointer">会社情報</li>
+        <li class="hover:cursor-pointer">ブログ</li>
+        <li class="hover:cursor-pointer">写真集</li>
+      </ul>
+    </header>
+    <main class="flex flex-col gap-20 w-full max-w-5xl py-10 px-4 md:m-auto">
+      <section class="flex flex-col gap-2 w-full">
+        <h1 class="border-b-4 border-black text-4xl">前提条件</h1>
+        <figure
+          class="flex flex-col md:flex-row items-center justify-center gap-4 w-full"
+        >
+          <img
+            class="w-full md:w-1/2 h-auto object-contain"
+            src="images/APIVol1.png"
+            alt=""
+          />
+          <img
+            class="w-full md:w-1/2 h-auto object-contain"
+            src="images/APIVol2.png"
+            alt=""
+          />
+        </figure>
+        <div class="inline-block w-full">
+          <p>
+            仕様書を書くにあたって必要となる知識を先に埋めておこうと思います。
+            構成としては、Google Apps Script（GAS）とGoogle
+            Sheetsを使用してAPIとデータベースを構築しています。APIはREST
+            API設計思想を踏襲して作成します。
+          </p>
+          <p>
+            データベースの仕様は、デスクトップであれば右上、モバイルであれば上の部分に書いてあります。IDとcreatedはAPI側で自動生成します。作成の場合では、stateはFALSEで登録されます。
+            また、GASの制限で[POST/GET]のHTTPメソッドしか使用することができず、ステータコードは200しか返すことができません。ちなみにURLも一つのGASファイルにつき一つです。回避策として以下の図のようにすべてをPOSTで送信し、データにメソッドとルートを表すデータを渡すことでREST
+            APIを再現します。ステータスコードも同様の方法で再現します。サンプルのJSON形式をいかにおいておきます。
+          </p>
+        </div>
+        <figure
+          class="flex flex-col md:flex-row items-center justify-center gap-4 w-full"
+        >
+          <img
+            class="w-full md:w-1/2 h-auto object-contain"
+            src="images/APIVol4.png"
+            alt=""
+          />
+          <img
+            class="w-full md:w-1/2 h-auto object-contain"
+            src="images/APIVol3.png"
+            alt=""
+          />
+        </figure>
+      </section>
+      <section class="flex flex-col gap-4 md:gap-16 w-full">
+        <h1 class="border-b-4 border-black text-4xl">API仕様書</h1>
+        <!-- 一つの単位　POST -->
+        <div class="flex flex-col gap-6">
+          <h2 class="flex flex-col md:flex-row md:items-center md:gap-4">
+            <div class="flex flex-row items-center gap-2">
+              <span
+                class="flex items-center justify-center rounded-lg bg-[#B1F98F] border-2 border-white w-36 h-16 text-3xl font-bold"
+                >POST</span
+              >
+              <span>item</span>
+            </div>
+            <span class="flex flex-row">TODOのアイテム登録</span>
+          </h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex flex-col md:w-1/2">
+              <h3 class="">request・responseの仕様</h3>
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">request</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>task</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">response</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>task</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>created</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>ID</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>state</span>
+                    <span class="font-bold">boolean</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <h3>想定されるステータスコード</h3>
+              <div class="flex flex-col gap-2">
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#8FC0F9] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >201</span
+                  >
+                  <p class="text-left">
+                    リクエスト成功やでぇ～データ作成するで。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >400</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >404</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >405</span
+                  >
+                  <p class="text-left">
+                    許されてるメソッドはPOST/GET/PUT/DELETEのみっす！
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>request・response例</h3>
+            <div>
+              <script src="https://gist.github.com/ReiRyuSTI/3ed40c096fe079325418f737b3790270.js"></script>
+            </div>
+          </div>
+        </div>
+
+        <!-- 一つの単位　GET -->
+        <div class="flex flex-col gap-6">
+          <h2 class="flex flex-col md:flex-row md:items-center md:gap-4">
+            <div class="flex flex-row items-center gap-2">
+              <span
+                class="flex items-center justify-center rounded-lg bg-[#B1F98F] border-2 border-white w-36 h-16 text-3xl font-bold"
+                >GET</span
+              >
+              <span>item</span>
+            </div>
+            <span class="flex flex-row">TODOのアイテム取得</span>
+          </h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex flex-col md:w-1/2">
+              <h3 class="">request・responseの仕様</h3>
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">request</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span></span>
+                    <span class="font-bold">なし</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">response</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>task</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>created</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>ID</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>state</span>
+                    <span class="font-bold">boolean</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <h3>想定されるステータスコード</h3>
+              <div class="flex flex-col gap-2">
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#8FC0F9] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >200</span
+                  >
+                  <p class="text-left">
+                    リクエスト成功やでぇ～データ返答するで。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >400</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >404</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >405</span
+                  >
+                  <p class="text-left">
+                    許されてるメソッドはPOST/GET/PUT/DELETEのみっす！
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>request・response例</h3>
+            <div>
+              <script src="https://gist.github.com/ReiRyuSTI/466b8cc83b84e4db6b1c520fd340694b.js"></script>
+            </div>
+          </div>
+        </div>
+
+        <!-- 一つの単位　PUT -->
+        <div class="flex flex-col gap-6">
+          <h2 class="flex flex-col md:flex-row md:items-center md:gap-4">
+            <div class="flex flex-row items-center gap-2">
+              <span
+                class="flex items-center justify-center rounded-lg bg-[#B1F98F] border-2 border-white w-36 h-16 text-3xl font-bold"
+                >PUT</span
+              >
+              <span>item</span>
+            </div>
+            <span class="flex flex-row">TODOのアイテム編集</span>
+          </h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex flex-col md:w-1/2">
+              <h3 class="">request・responseの仕様</h3>
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">request</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>task</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>created</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>ID</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>state</span>
+                    <span class="font-bold">boolean</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">response</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span></span>
+                    <span class="font-bold">なし</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <h3>想定されるステータスコード</h3>
+              <div class="flex flex-col gap-2">
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#8FC0F9] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >204</span
+                  >
+                  <p class="text-left">リクエスト成功やでぇ～処理しました。</p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >400</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >404</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >405</span
+                  >
+                  <p class="text-left">
+                    許されてるメソッドはPOST/GET/PUT/DELETEのみっす！
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>request・response例</h3>
+            <div>
+              <script src="https://gist.github.com/ReiRyuSTI/3ed40c096fe079325418f737b3790270.js"></script>
+            </div>
+          </div>
+        </div>
+
+        <!-- 一つの単位　DELETE -->
+        <div class="flex flex-col gap-6">
+          <h2 class="flex flex-col md:flex-row md:items-center md:gap-4">
+            <div class="flex flex-row items-center gap-2">
+              <span
+                class="flex items-center justify-center rounded-lg bg-[#B1F98F] border-2 border-white w-36 h-16 text-3xl font-bold"
+                >DELETE</span
+              >
+              <span>item</span>
+            </div>
+            <span class="flex flex-row">TODOのアイテム編集</span>
+          </h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            <div class="flex flex-col md:w-1/2">
+              <h3 class="">request・responseの仕様</h3>
+              <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">request</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span>ID</span>
+                    <span class="font-bold">string</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-col items-center gap-2 md:w-1/2">
+                  <div class="mini-item-title">response</div>
+                  <div
+                    class="flex items-center justify-between bg-[#F5F5F5] rounded-2xl px-4 w-full h-9 text-base text-[#696363]"
+                  >
+                    <span></span>
+                    <span class="font-bold">なし</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="md:w-1/2">
+              <h3>想定されるステータスコード</h3>
+              <div class="flex flex-col gap-2">
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#8FC0F9] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >204</span
+                  >
+                  <p class="text-left">リクエスト成功やでぇ～処理しました。</p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >400</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >404</span
+                  >
+                  <p class="text-left">
+                    リクエストのパラメータが間違っているかもしれません。
+                  </p>
+                </div>
+                <div
+                  class="flex flex-col md:flex-row md:items-center p-2 rounded-lg bg-gray-300/20 text-base"
+                >
+                  <span
+                    class="flex items-center justify-center bg-[#F98F8F] rounded-2xl px-4 w-full md:w-20 h-9 md:h-9 text-base text-white"
+                    >405</span
+                  >
+                  <p class="text-left">
+                    許されてるメソッドはPOST/GET/PUT/DELETEのみっす！
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3>request・response例</h3>
+            <div>
+              <script src="https://gist.github.com/ReiRyuSTI/34829102d52918d17c3aa5040f57d0ed.js"></script>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="">
+      <ul class="flex flex-col md:flex-row items-center justify-around gap-8">
+        <li>会社情報</li>
+        <li>ブログ</li>
+        <li>写真集</li>
+      </ul>
+    </footer>
+  </body>
+  <script>
+    window.onload = (event) => {
+      const targets = [...document.getElementsByClassName("gist")];
+
+      targets.forEach((element) => {
+        console.log(element);
+        element.classList.add("gist-bord");
+        const gistFiles = [...element.getElementsByClassName("gist-file")];
+
+        const requestElement = document.createElement("div");
+        requestElement.innerText = "request";
+        requestElement.classList.add("mini-item-title");
+
+        const responseElement = document.createElement("div");
+        responseElement.innerText = "response";
+        responseElement.classList.add("mini-item-title");
+
+        gistFiles[0].insertBefore(requestElement, gistFiles[0].firstChild);
+        gistFiles[1].insertBefore(responseElement, gistFiles[1].firstChild);
+      });
+    };
+  </script>
+</html>

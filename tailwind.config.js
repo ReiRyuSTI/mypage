@@ -10,6 +10,7 @@ module.exports = {
         lobster: ["Lobster"],
         dela: ["Dela Gothic One"],
         syuku: ["Yuji Syuku"],
+        sawarabi: ["Sawarabi Gothic"],
       },
     },
   },
