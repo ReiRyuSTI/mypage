@@ -635,6 +635,10 @@ video {
   left: 100%;
 }
 
+.right-1\/2{
+  right: 50%;
+}
+
 .z-40{
   z-index: 40;
 }
@@ -1051,6 +1055,10 @@ video {
   border-bottom-width: 4px;
 }
 
+.border-t-2{
+  border-top-width: 2px;
+}
+
 .border-black{
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
@@ -1413,6 +1421,10 @@ video {
 
   .md\:right-20{
     right: 5rem;
+  }
+
+  .md\:right-0{
+    right: 0px;
   }
 
   .md\:m-auto{

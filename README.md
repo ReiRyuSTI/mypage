@@ -14,6 +14,7 @@
 - [Tailwind で遊んでみた vol.1](https://reiryusti.github.io/mypage/public/vol1.html)
 - [Tailwind で遊んでみた vol.2](https://reiryusti.github.io/mypage/public/vol2.html)
 - [Tailwind で遊んでみた vol.3](https://reiryusti.github.io/mypage/public/vol3.html)
+- [API 仕様書作ってみた Vol.1](https://reiryusti.github.io/mypage/public/public\APIspecificationVol1.html)
 
 ## 素材
 

@@ -18,9 +18,24 @@
         API仕様書作ってみた
       </div>
       <ul class="hidden md:flex flex-row gap-8">
-        <li class="hover:cursor-pointer">会社情報</li>
-        <li class="hover:cursor-pointer">ブログ</li>
-        <li class="hover:cursor-pointer">写真集</li>
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://www.sios.com/ja/')"
+        >
+          会社情報
+        </li>
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://tech-lab-engineer.sios.jp/archives/log/')"
+        >
+          ブログ
+        </li>
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://www.reina-ryu-f.xyz/photoAlb/#/all')"
+        >
+          写真集
+        </li>
       </ul>
     </header>
     <main class="flex flex-col gap-20 w-full max-w-5xl py-10 px-4 md:m-auto">
@@ -501,12 +516,32 @@
         </div>
       </section>
     </main>
-    <footer class="">
-      <ul class="flex flex-col md:flex-row items-center justify-around gap-8">
-        <li>会社情報</li>
-        <li>ブログ</li>
-        <li>写真集</li>
+    <footer class="relative flex w-full h-80 border-t-2 border-black">
+      <ul
+        class="flex flex-col md:flex-row items-center justify-start gap-8 m-auto w-full max-w-5xl"
+      >
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://www.sios.com/ja/')"
+        >
+          会社情報
+        </li>
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://tech-lab-engineer.sios.jp/archives/log/')"
+        >
+          ブログ
+        </li>
+        <li
+          class="hover:cursor-pointer"
+          onClick="onClickButton('https://www.reina-ryu-f.xyz/photoAlb/#/all')"
+        >
+          写真集
+        </li>
       </ul>
+      <div class="absolute bottom-0 md:right-0 w-full md:w-auto">
+        <img src="images/apiFooter.svg" alt="" />
+      </div>
     </footer>
   </body>
   <script>
@@ -529,6 +564,9 @@
         gistFiles[0].insertBefore(requestElement, gistFiles[0].firstChild);
         gistFiles[1].insertBefore(responseElement, gistFiles[1].firstChild);
       });
+    };
+    const onClickButton = (url) => {
+      window.open(url);
     };
   </script>
 </html>
